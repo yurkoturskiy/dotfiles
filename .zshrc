@@ -2,6 +2,7 @@
 source ~/.shellconfigs/.aliases
 
 alias autocop="git status | grep 'modified\|new file' | awk '{print \$NF}' | grep '\.rb' | grep -v db/schema | xargs rubocop -A"
+alias ls="ls --color"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
