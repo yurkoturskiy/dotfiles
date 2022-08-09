@@ -1,6 +1,5 @@
 alias ta="tmux a"
 alias vim="nvim"
-alias zvim="nvim -o \`fzf\`"
 
 # GitHub aliases
 alias gco='git checkout '
@@ -11,3 +10,4 @@ alias gb='git branch '
 alias gs='git status'
 alias g='git'
 
+alias ubuntu-droplet='mosh yurko@164.92.129.191 --server=/home/linuxbrew/.linuxbrew/bin/mosh-server '
