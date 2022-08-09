@@ -1,5 +1,5 @@
 # imports
-source ~/.shellconfigs/.aliases
+source ~/.aliases
 
 alias autocop="git status | grep 'modified\|new file' | awk '{print \$NF}' | grep '\.rb' | grep -v db/schema | xargs rubocop -A"
 alias ls="ls --color"

@@ -126,4 +126,4 @@ export EDITOR="nvim"
 
 . "$HOME/.cargo/env"
 
-source ~/.shellconfigs/.aliases
+source ~/.aliases

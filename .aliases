@@ -1,0 +1,13 @@
+alias ta="tmux a"
+alias vim="nvim"
+alias zvim="nvim -o \`fzf\`"
+
+# GitHub aliases
+alias gco='git checkout '
+alias ga='git add '
+alias gc='git commit '
+alias gp='git pull '
+alias gb='git branch '
+alias gs='git status'
+alias g='git'
+
