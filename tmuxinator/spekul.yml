@@ -45,7 +45,6 @@ root: ~/projects/spekul
 # attach: false
 
 windows:
-  - remix-code: cd basic-remix-frontend && vim .
-  - rails-code: cd rails-web-server && vim .
+  - code: vim .
   - remix-server: cd basic-remix-frontend && npm run dev
   - rails-server: cd rails-web-server && ./bin/dev
