@@ -84,7 +84,8 @@ let g:coc_global_extensions = [
   \]
 
 " Maps
-let mapleader = "\<Space>"
+" let mapleader = "\<Space>"
+
 inoremap jj <Esc>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
