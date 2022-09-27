@@ -14,7 +14,7 @@ Plug 'zefei/vim-wintabs'
 Plug 'rakr/vim-one'
 
 " Yank to system clipboard
-Plug 'jabirali/vim-tmux-yank'
+" Plug 'jabirali/vim-tmux-yank'
 
 " Commenting
 Plug 'tpope/vim-commentary' " Support JSX
@@ -61,6 +61,8 @@ set number
 
 " General settings
 set tabstop=4 
+
+set clipboard+=unnamedplus
 
 " Appearance
 set termguicolors
