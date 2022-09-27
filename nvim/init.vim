@@ -13,8 +13,10 @@ Plug 'zefei/vim-wintabs'
 " Themes
 Plug 'rakr/vim-one'
 
-" Yank to system clipboard
-" Plug 'jabirali/vim-tmux-yank'
+" Yank to iPad's system clipboard from virtual machine
+if has("linux")
+    Plug 'jabirali/vim-tmux-yank'
+endif
 
 " Commenting
 Plug 'tpope/vim-commentary' " Support JSX
