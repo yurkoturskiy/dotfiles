@@ -13,7 +13,7 @@ Plug 'zefei/vim-wintabs'
 " Themes
 Plug 'rakr/vim-one'
 
-" Yank to iPad's system clipboard from virtual machine
+" Yank to iPad's system clipboard from linux virtual machine
 if has("linux")
     Plug 'jabirali/vim-tmux-yank'
 endif
@@ -54,17 +54,27 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" WakaTime support
+Plug 'wakatime/vim-wakatime'
+
 call plug#end()
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect
 
+" Indentation setup
+set shiftwidth=2
+set tabstop=2
+set autoindent
+set smartindent
+
 set number
 
 " General settings
-set tabstop=4 
-
 set clipboard+=unnamedplus
+" Disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 
 " Appearance
 set termguicolors
