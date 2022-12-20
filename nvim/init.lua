@@ -229,12 +229,12 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- [[ Configure Toggleterm ]] 
 require("toggleterm").setup {
-  open_mapping = '<c-t>',
+  open_mapping = '<c-j>',
   insert_mappings = false,
 }
 
 -- [[ Configure lf file-manager ]]
-vim.keymap.set("n", "<C-o>", ":Lf<CR>")
+vim.keymap.set("n", "<c-o>", ":Lf<CR>")
 
 -- [[ Configure Wintabs ]]
 vim.keymap.set({'n', 'v'}, '<S-h>', ":WintabsPrevious<CR>")
