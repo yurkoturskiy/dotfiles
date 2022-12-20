@@ -50,6 +50,14 @@ require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'zefei/vim-wintabs' -- tabs
+  use {
+    "akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end
+  }
+  use 'lmburns/lf.nvim' -- lf manager
+  use 'christoomey/vim-tmux-navigator' -- Navigate tmux splits from vim
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -106,6 +114,11 @@ vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
+
+-- Yank to system clipboard
+vim.opt.clipboard = 'unnamedplus'
+-- Disable automatic comment insertion
+vim.api.nvim_exec([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]], true)
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -213,6 +226,20 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+-- [[ Configure Toggleterm ]] 
+require("toggleterm").setup {
+  open_mapping = '<c-t>',
+  insert_mappings = false,
+}
+
+-- [[ Configure lf file-manager ]]
+vim.keymap.set("n", "<C-o>", ":Lf<CR>")
+
+-- [[ Configure Wintabs ]]
+vim.keymap.set({'n', 'v'}, '<S-h>', ":WintabsPrevious<CR>")
+vim.keymap.set({'n', 'v'}, '<S-l>', ":WintabsNext<CR>")
+vim.keymap.set({'n', 'v'}, '<S-w>', ":WintabsClose<CR>")
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
