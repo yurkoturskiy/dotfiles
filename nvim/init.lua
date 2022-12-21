@@ -97,6 +97,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
+-- Format on save
+vim.cmd [[autocmd BufWritePre * Format]]
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
@@ -227,7 +230,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- [[ Configure Toggleterm ]] 
+-- [[ Configure Toggleterm ]]
 require("toggleterm").setup {
   open_mapping = '<c-j>',
   insert_mappings = false,
@@ -237,9 +240,9 @@ require("toggleterm").setup {
 vim.keymap.set("n", "<c-o>", ":Lf<CR>")
 
 -- [[ Configure Wintabs ]]
-vim.keymap.set({'n', 'v'}, '<S-h>', ":WintabsPrevious<CR>")
-vim.keymap.set({'n', 'v'}, '<S-l>', ":WintabsNext<CR>")
-vim.keymap.set({'n', 'v'}, '<S-w>', ":WintabsClose<CR>")
+vim.keymap.set({ 'n', 'v' }, '<S-h>', ":WintabsPrevious<CR>")
+vim.keymap.set({ 'n', 'v' }, '<S-l>', ":WintabsNext<CR>")
+vim.keymap.set({ 'n', 'v' }, '<S-w>', ":WintabsClose<CR>")
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
