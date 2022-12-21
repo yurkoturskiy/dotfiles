@@ -235,12 +235,22 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- [[ Configure Toggleterm terminal ]]
 require("toggleterm").setup {
-  open_mapping = '<c-j>',
+  open_mapping = '<leader>j',
+  terminal_mappings = false,
   insert_mappings = false,
 }
+function _G.set_terminal_keymaps()
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n> :ToggleTerm<CR>]], { noremap = true })
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]])
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]])
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]])
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- [[ Configure lf file-manager ]]
-vim.keymap.set("n", "<c-o>", ":Lf<CR>")
+vim.keymap.set("n", "<leader>k", ":Lf<CR>")
 
 -- [[ Configure Wintabs ]]
 vim.keymap.set({ 'n', 'v' }, '<S-h>', ":WintabsPrevious<CR>")
