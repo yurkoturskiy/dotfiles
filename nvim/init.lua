@@ -23,6 +23,8 @@ require('packer').startup(function(use)
     },
   }
 
+  use 'wakatime/vim-wakatime' -- WakaTime performance tracker
+
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
@@ -261,7 +263,8 @@ vim.keymap.set({ 'n', 'v' }, '<S-w>', ":WintabsClose<CR>")
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'tsx', 'glsl', 'javascript', 'help' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'tsx', 'glsl', 'javascript', 'prisma',
+    'help' },
 
   highlight = { enable = true },
   indent = { enable = true },
@@ -380,7 +383,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'tailwindcss', 'prismals' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
