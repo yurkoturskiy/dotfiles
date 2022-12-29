@@ -33,6 +33,8 @@ require('packer').startup(function(use)
   -- AI autocompletion
   use 'github/copilot.vim'
 
+  use 'jose-elias-alvarez/null-ls.nvim' -- LSP for null-ls
+
   use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -54,7 +56,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  -- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
   use 'zefei/vim-wintabs' -- tabs
   use {
     "akinsho/toggleterm.nvim", tag = '*', config = function()
@@ -133,6 +135,13 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
+
+-- tab indentation
+-- vim.cmd 'set autoindent expandtab tabstop=2 shiftwidth=2'
+vim.o.autoindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 -- Set colorscheme
 vim.o.termguicolors = true
@@ -320,6 +329,16 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+
+-- Configure null-ls
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettierd,
+    -- tailwind
+    null_ls.builtins.formatting.rustywind,
+  },
+})
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
