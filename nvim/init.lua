@@ -102,8 +102,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- Format on save
-vim.cmd [[autocmd BufWritePre * Format]]
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -368,6 +366,8 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+  -- Format on save
+  vim.cmd [[autocmd BufWritePre * Format]]
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     if vim.lsp.buf.format then
@@ -383,7 +383,8 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'tailwindcss', 'prismals' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'tailwindcss', 'prismals',
+  'jsonls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
