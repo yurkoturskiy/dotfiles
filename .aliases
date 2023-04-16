@@ -1,5 +1,9 @@
-alias ta="tmux a"
-alias vim="nvim"
+if command -v tmux >/dev/null 2>&1; then
+  alias ta="tmux a"
+fi
+if command -v nvim >/dev/null 2>&1; then
+  alias vim="nvim"
+fi
 
 # GitHub aliases
 alias gco='git checkout '
