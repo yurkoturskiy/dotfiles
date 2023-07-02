@@ -5,6 +5,8 @@ if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"
 fi
 
+alias vscode="open -a 'Visual Studio Code - Insiders'"
+
 # GitHub Copilot cli
 if command -v github-copilot-cli 2>&1; then
   eval "$(github-copilot-cli alias -- "$0")"
@@ -18,5 +20,7 @@ alias gp='git pull '
 alias gb='git branch '
 alias gs='git status'
 alias g='git'
+
+alias nrd='npm run dev'
 
 alias ubuntu-droplet='mosh yurko@164.92.129.191 --server=/home/linuxbrew/.linuxbrew/bin/mosh-server '
