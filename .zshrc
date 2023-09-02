@@ -185,3 +185,11 @@ export LANG
 export LC_CTYPE="en_US.UTF-8"
 
 [[ -s "/Users/yurko/.gvm/scripts/gvm" ]] && source "/Users/yurko/.gvm/scripts/gvm"
+
+# pnpm
+export PNPM_HOME="/Users/yurko/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
