@@ -25,7 +25,7 @@ require('packer').startup(function(use)
 
   use 'wakatime/vim-wakatime' -- WakaTime performance tracker
 
-  use {                       -- Autocompletion
+  use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
@@ -35,7 +35,7 @@ require('packer').startup(function(use)
 
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP for null-ls
 
-  use {                                 -- Highlight, edit, and navigate code
+  use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -52,18 +52,18 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'navarasu/onedark.nvim'               -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim'           -- Fancier statusline
+  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   -- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
-  use 'zefei/vim-wintabs'                   -- tabs
+  use 'zefei/vim-wintabs' -- tabs
   use {
     "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end
+      require("toggleterm").setup()
+    end
   }
-  use 'lmburns/lf.nvim'                -- lf manager
+  use 'lmburns/lf.nvim' -- lf manager
   use 'christoomey/vim-tmux-navigator' -- Navigate tmux splits from vim
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -192,10 +192,7 @@ require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = false,
-}
+require('ibl').setup()
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
