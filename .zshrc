@@ -4,11 +4,13 @@ source ~/.aliases
 alias autocop="git status | grep 'modified\|new file' | awk '{print \$NF}' | grep '\.rb' | grep -v db/schema | xargs rubocop -A"
 alias ls="ls --color"
 
+# export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export BUNDLE_EDITOR="mvim -v"
 export EDITOR="nvim"
@@ -193,3 +195,20 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/yurko/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/yurko/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/yurko/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/yurko/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
+eval "$(pyenv init -)"
+
