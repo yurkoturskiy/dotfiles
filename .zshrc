@@ -195,6 +195,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
 # __conda_setup="$('/Users/yurko/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -212,3 +213,5 @@ esac
 
 eval "$(pyenv init -)"
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
