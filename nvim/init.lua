@@ -25,7 +25,7 @@ require('packer').startup(function(use)
 
   use 'wakatime/vim-wakatime' -- WakaTime performance tracker
 
-  use { -- Autocompletion
+  use {                       -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
@@ -35,7 +35,7 @@ require('packer').startup(function(use)
 
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP for null-ls
 
-  use { -- Highlight, edit, and navigate code
+  use {                                 -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -52,18 +52,42 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'navarasu/onedark.nvim'               -- Theme inspired by Atom
+  use 'nvim-lualine/lualine.nvim'           -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
   -- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
-  use 'zefei/vim-wintabs' -- tabs
+  use 'zefei/vim-wintabs'                   -- tabs
   use {
     "akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end
+    require("toggleterm").setup()
+  end
   }
-  use 'lmburns/lf.nvim' -- lf manager
+  -- use 'lmburns/lf.nvim' -- lf manager
+  -- Sample configuration is supplied
+  use({
+    "lmburns/lf.nvim",
+    config = function()
+      -- This feature will not work if the plugin is lazy-loaded
+      vim.g.lf_netrw = 1
+
+      require("lf").setup({
+        escape_quit = false,
+        border = "rounded",
+      })
+
+      vim.keymap.set("n", "<M-o>", "<Cmd>Lf<CR>")
+
+      vim.api.nvim_create_autocmd({
+        event = "User",
+        pattern = "LfTermEnter",
+        callback = function(a)
+          vim.api.nvim_buf_set_keymap(a.buf, "t", "q", "q", { nowait = true })
+        end,
+      })
+    end,
+    requires = { "toggleterm.nvim" }
+  })
   use 'christoomey/vim-tmux-navigator' -- Navigate tmux splits from vim
 
   -- Fuzzy Finder (files, lsp, etc)

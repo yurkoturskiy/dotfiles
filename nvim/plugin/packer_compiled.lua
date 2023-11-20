@@ -115,6 +115,7 @@ _G.packer_plugins = {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lf.nvim"] = {
+    config = { "\27LJ\2\n^\0\1\b\0\a\0\n6\1\0\0009\1\1\0019\1\2\0019\3\3\0'\4\4\0'\5\5\0'\6\5\0005\a\6\0B\1\6\1K\0\1\0\1\0\1\vnowait\2\6q\6t\bbuf\24nvim_buf_set_keymap\bapi\bvimç\2\1\0\5\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0'\2\t\0'\3\n\0'\4\v\0B\0\4\0016\0\0\0009\0\f\0009\0\r\0005\2\14\0003\3\15\0=\3\16\2B\0\2\1K\0\1\0\rcallback\0\1\0\2\fpattern\16LfTermEnter\nevent\tUser\24nvim_create_autocmd\bapi\16<Cmd>Lf<CR>\n<M-o>\6n\bset\vkeymap\1\0\2\vborder\frounded\16escape_quit\1\nsetup\alf\frequire\rlf_netrw\6g\bvim\0" },
     loaded = true,
     path = "/Users/yurko/.local/share/nvim/site/pack/packer/start/lf.nvim",
     url = "https://github.com/lmburns/lf.nvim"
@@ -223,6 +224,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lf.nvim
+time([[Config for lf.nvim]], true)
+try_loadstring("\27LJ\2\n^\0\1\b\0\a\0\n6\1\0\0009\1\1\0019\1\2\0019\3\3\0'\4\4\0'\5\5\0'\6\5\0005\a\6\0B\1\6\1K\0\1\0\1\0\1\vnowait\2\6q\6t\bbuf\24nvim_buf_set_keymap\bapi\bvimç\2\1\0\5\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0'\2\t\0'\3\n\0'\4\v\0B\0\4\0016\0\0\0009\0\f\0009\0\r\0005\2\14\0003\3\15\0=\3\16\2B\0\2\1K\0\1\0\rcallback\0\1\0\2\fpattern\16LfTermEnter\nevent\tUser\24nvim_create_autocmd\bapi\16<Cmd>Lf<CR>\n<M-o>\6n\bset\vkeymap\1\0\2\vborder\frounded\16escape_quit\1\nsetup\alf\frequire\rlf_netrw\6g\bvim\0", "config", "lf.nvim")
+time([[Config for lf.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
